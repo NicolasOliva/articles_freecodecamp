@@ -11,7 +11,8 @@ app.get('/', (req,res) => {
   getData()
     .then(info => {
       res.render('home', {
-        info
+        tags: info["tags"],
+        articles: info["articles"]
       });
     })
     .catch(err => {

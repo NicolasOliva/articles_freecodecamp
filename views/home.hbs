@@ -28,7 +28,7 @@
         {{!-- articles --}}
         <div class="row">
             <div class="col-md-8">
-                {{#each info}}
+                {{#each articles}}
                     {{!-- article --}}
                     <div class="row">
                         <div class="col box-standard text-light ">
@@ -47,6 +47,20 @@
                                 <div class="col col-between">
                                     <a href={{this.link}} target="__blank" class="text-light">Link</a>
                                     <p>tag:&nbsp; <span class="font-weight-normal">{{this.tag}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="col-md-4">
+                {{#each tags}}
+                    {{!-- article --}}
+                    <div class="row">
+                        <div class="col box-standard text-light ">
+                            <div class="row my-3">
+                                <div class="col d-flex justify-content-center">
+                                    <span class="font-weight-normal">{{this}}</span>
                                 </div>
                             </div>
                         </div>

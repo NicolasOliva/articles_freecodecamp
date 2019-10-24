@@ -3,6 +3,8 @@ const cheerio = require('cheerio'),
 
 const getData = async () => {
     
+    const info = {};
+
     try {
         
         const $ = await request({
@@ -34,7 +36,10 @@ const getData = async () => {
 
         });
 
-        return articles;
+        info["tags"] = tagsSearch;
+        info["articles"] = articles;
+
+        return info;
 
     }catch (e) {
         console.log(e);

@@ -1,8 +1,20 @@
+body {
+    background: linear-gradient(to bottom, #05a000, #005507);
+}
+
 .box-standard {
     background: rgb(0,0,0,0.7);
     margin: 15px;
     padding: 20px;
     border-radius: 10px; 
+}
+
+.box-keywords {
+    background: rgb(0,0,0,0.7);
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px; 
+    text-transform: uppercase;
 }
 
 .box-standard p {

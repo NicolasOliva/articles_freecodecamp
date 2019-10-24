@@ -26,7 +26,7 @@ const getData = async () => {
                 article["indice"] = i; 
                 article["tag"] = tag;
                 article["title"] = title;
-                article["link"] = link;
+                article["link"] = `https://www.freecodecamp.org${link}`;
                 article["time"] = time;
                       
                 articles.push(article);

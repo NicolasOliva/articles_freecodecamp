@@ -1,12 +1,26 @@
-body {
-    background-color: green;
+.box-standard {
+    background: rgb(0,0,0,0.7);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px; 
 }
 
-h1 {
-    color:red;
+.box-standard p {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0px;
 }
 
-.aa {
-    font-size: 40px;
+.box-standard span {
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: none;
 }
+
+.col-between {
+    display: flex;
+    justify-content: space-between;
+}
+
   

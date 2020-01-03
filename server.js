@@ -23,8 +23,10 @@ app.get('/', (req,res) => {
 
 })
 
-app.listen(3000,() => {
-  console.log('run app on port 3000');
+process.env.PORT = process.env.PORT || 3000;
+
+app.listen(process.env.PORT   ,() => {
+  console.log('run app on port' + process.env.PORT);
 });
 
 

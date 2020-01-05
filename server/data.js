@@ -1,9 +1,12 @@
 const cheerio = require('cheerio'),
       request = require('request-promise'); 
 
-const getData = async () => {
-    
-    const info = {};
+const getData = async (tags = []) => {
+
+    const info = {},
+          articles = [];
+          
+    let tagsSearch = ['javascript', 'nodejs', 'reactjs'];   //tags preloaded
 
     try {
         
@@ -11,9 +14,10 @@ const getData = async () => {
             uri: 'https://www.freecodecamp.org/news/',
             transform: body => cheerio.load(body)
         });
-
-        const articles = [],
-              tagsSearch = ['javascript','nodejs', 'expressjs', 'react'];
+        
+        if(tags.length > 0){
+            tagsSearch = tags.slice();
+        }
 
         $('article').each((i,element) => {
             
@@ -40,7 +44,7 @@ const getData = async () => {
         info["articles"] = articles;
         
     }catch (e) {
-       
+       console.log(e);
        info["error"] = e.name; 
     
     } finally {

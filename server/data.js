@@ -38,11 +38,15 @@ const getData = async () => {
 
         info["tags"] = tagsSearch;
         info["articles"] = articles;
+        
+    }catch (e) {
+       
+       info["error"] = e.name; 
+    
+    } finally {
 
         return info;
 
-    }catch (e) {
-        console.log(e);
     }
 
 }

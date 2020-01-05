@@ -1,7 +1,7 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
       app = express();
-  
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false })); 
 
@@ -9,10 +9,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(process.cwd() + "/views"));
 app.set('view engine', 'hbs');
 
- app.get('/', require('./routes'));
-// app.get('/', (req,res) => {
-//   console.log(process.cwd() + "/views");
-// })
+app.use('/', require('./routes'));
+
 process.env.PORT = process.env.PORT || 3000;
 
 app.listen(process.env.PORT   ,() => {

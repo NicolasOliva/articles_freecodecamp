@@ -20,40 +20,51 @@
         {{!-- data --}}
         <div class="row">
             {{!-- news --}}
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <h3>Articles</h3>
+            {{#if error}}
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h3>Error: {{error}}</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        {{#each articles}}
-                            <div class="row">
-                                <div class="col box-standard text-light ">
-                                    <div class="row">
-                                        <div class="col col-between">
-                                            <p>number:&nbsp; <span class="font-weight-normal">{{this.indice}}</span></p>
-                                            <p>date:&nbsp; <span class="font-weight-normal">{{this.time}}</span></p>
+                </div>            
+            {{else}}
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <h3>Articles</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{#each articles}}
+                                <div class="row">
+                                    <div class="col box-standard text-light ">
+                                        <div class="row">
+                                            <div class="col col-between">
+                                                <p>number:&nbsp; <span class="font-weight-normal">{{this.indice}}</span></p>
+                                                <p>date:&nbsp; <span class="font-weight-normal">{{this.time}}</span></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row my-3">
-                                        <div class="col">
-                                            <p>title:&nbsp; <span class="font-weight-normal">{{this.title}}</span></p>
+                                        <div class="row my-3">
+                                            <div class="col">
+                                                <p>title:&nbsp; <span class="font-weight-normal">{{this.title}}</span></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col col-between">
-                                            <a href={{this.link}} target="__blank" class="text-light">Link</a>
-                                            <p>tag:&nbsp; <span class="font-weight-normal">{{this.tag}}</span></p>
+                                        <div class="row">
+                                            <div class="col col-between">
+                                                <a href={{this.link}} target="__blank" class="text-light">Link</a>
+                                                <p>tag:&nbsp; <span class="font-weight-normal">{{this.tag}}</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        {{/each}}
+                            {{/each}}
+                        </div>
                     </div>
-                </div>
-            </div>
+                </div>            
+            {{/if}}
+            
             {{!-- tags --}}
             <div class="col-md-4">
                 {{!-- search tags --}}
@@ -65,7 +76,7 @@
                 {{!-- form --}}
                 <div class="row">
                     <div class="col my-3">
-                        <form class="form-inline d-flex my-2 my-lg-0" action="/tags" method="post">
+                        <form class="form-inline d-flex my-2 my-lg-0" action="/" method="post">
                             <div class="col-md-10 m-0">
                                 <input class="form-control mr-sm-2" type="text" name="tags" id="info" placeholder="Ej: javascript, serverless ... " aria-label="Search">
                             </div>

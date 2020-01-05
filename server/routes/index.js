@@ -1,27 +1,35 @@
 const {Router} = require('express'),
       {getData} = require('../data'),
       router = Router();
-      
+ 
 router.get('/', async (req, res) => {
-   
-    // res.render('home');
-  getData()
-    .then(info => {
-      res.render('home', {
-        tags: info["tags"],
-        articles: info["articles"]
-      });
-    })
-    .catch(err => {
+  
+  try {
+  
+    const data = await getData();
+    
+    if(data['error']){
       res.render('home',{
-        info: 'error'
+        error: data['error']
+      });
+    }else {
+      res.render('home', {
+        tags: data['tags'],
+        articles: data['articles']  
       })
-    })
-})
+    }
 
-router.post('/tags', (req,res) => {
+  } catch (error) {
+    
+    console.log(error);
+  
+  }
+  
+}); 
+
+router.post('/', (req,res) => {
     console.log(req.body.tags);
-    // res.render('home');
-})
+    res.render('home');
+});
 
 module.exports = router;
